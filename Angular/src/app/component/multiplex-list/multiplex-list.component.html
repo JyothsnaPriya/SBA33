@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2 class="mb-5 ml-5">
+    <fa name="users"></fa>Multiplexes List
+  </h2>
+
+  <div class="alert alert-warning" *ngIf="!multiplexes || multiplexes.length==0">
+    <fa name="exclamation-triangle"></fa> Records could not be found or loaded
+  </div>
+
+  <div class="row" *ngIf="multiplexes && multiplexes.length>0">
+    <div class="col-lg-2 ml-1 mb-1" *ngFor="let c of multiplexes">
+      <div class="card" (mouseover)="cf.hidden=false" (mouseleave)="cf.hidden=true">
+        <img class="card-img-top" [src]="mulLogo" />
+        <div class="card-body">
+          <p class="card-text"><br>
+                   <strong>{{c.mulname}}</strong> 
+            <br /> {{c.contactno}}
+            <br /> {{c.location}} 
+            
+          </p>
+        </div>
+        <div class="card-footer"  hidden="true" #cf>
+          <div class="btn-group">
+            <a routerLink="/addManager/{{c.mulname}}" class="btn btn-success">Appoint</a>
+            <a routerLink="/viewMultiplex/{{c.mulname}}" class="btn btn-info">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <h2 class="mb-5 ml-5">
+      <fa name="users"></fa>Managers List
+    </h2>
+  
+    <div class="alert alert-warning" *ngIf="!manager || manager.length==0">
+      <fa name="exclamation-triangle"></fa> Records could not be found or loaded
+    </div>
+  
+    <div class="row" *ngIf="manager && manager.length>0">
+      <div class="col-lg-2 ml-1 mb-1" *ngFor="let c of manager">
+        <div class="card" (mouseover)="cf.hidden=false" (mouseleave)="cf.hidden=true">
+        <img class="card-img-top" [src]="c.gender=='GENT'?gentLogo:ladyLogo" />
+          <div class="card-body">
+            <p class="card-text">
+              <br /><strong>Name : </strong> {{c.firstName|adjustLength:8}}
+              <br /><strong>MobileNo :</strong> {{c.mobileNUmber}}
+              <br /><strong>Multiplex : </strong> {{c.mulname}}
+              
+            </p>
+          </div>
+          <div class="card-footer"  hidden="true" #cf>
+            <div class="btn-group">
+              <a routerLink="/viewManager/{{c.managerid}}" class="btn ">
+                  <fa name="address-card"></fa>
+              </a>
+              <a routerLink="/delManager/{{c.managerid}}" class="btn">
+                <fa name="trash"></fa>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

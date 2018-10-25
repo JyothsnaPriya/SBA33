@@ -1,0 +1,71 @@
+<div class="container mt-2">
+    <div class="row">
+      <div class="col-sm-9 m-auto">
+        <h3 class="mb-5 mt-5">
+          Submit Multiplex details</h3> 
+          <br>
+        <!-- <br> <div>{{dateToday}}</div> -->
+  
+        <form class="form" #f="ngForm" (ngSubmit)="save()">
+
+          <div class="mb-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <fa name="users"></fa>
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="lnm" name="lnm" required minlength="5" maxlength="15"
+                  [(ngModel)]="multiplexes.mulname" #lnm=ngModel placeholder="MultiplexName" />
+              </div>
+              <div class="alert alert-danger" *ngIf="(lnm.errors && (lnm.touched || lnm.darty))">
+                  <p *ngIf="(lnm.errors && (lnm.touched || lnm.darty))">Please see that Multiplex Name <strong>
+                    <span *ngIf="lnm.errors.required">is not left blank</span>
+                    <span *ngIf="lnm.errors.minlength">is atleast 5 chars in length</span>
+                  </strong>
+                </p>
+              </div>
+            </div>
+  
+              <div class="mb-3">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <fa name="mobile"></fa>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" id="mno" name="mno" required pattern="\d{10}" [(ngModel)]="multiplexes.contactno"
+                      #mno=ngModel placeholder="Contact Number" />
+                  </div>
+                  <div class="alert alert-danger" *ngIf="mno.errors && (mno.touched || mno.darty)">
+                    <p>Please see that Mobile Number
+                      <strong>
+                        <span *ngIf="mno.errors.required">is not left blank</span>
+                        <span *ngIf="mno.errors.pattern">is exactly 10 digits only</span>
+                      </strong>
+                    </p>
+                  </div>
+                </div>
+              
+                <div class="mb-3">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <fa name="map-marker"></fa>
+                        </span>
+                      </div>
+                      <input type="text" class="form-control" id="location" name="location" [(ngModel)]="multiplexes.location"
+                        #mno=ngModel placeholder="Location" />
+                    </div>
+                 </div> 
+    
+          <div>
+            <button class="btn btn-block btn-primary">Save</button>
+          </div>
+          <!-- <div>
+            <button class="btn btn-block btn-primary">Back</button>
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </div>

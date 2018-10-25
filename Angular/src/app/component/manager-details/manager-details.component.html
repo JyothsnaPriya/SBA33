@@ -1,0 +1,56 @@
+<div class="container mt-2">
+    <div class="row">
+      <div class="col-sm-9 m-auto" *ngIf="!manager">
+        <h3>
+          <fa name="cog" animation="spin"></fa> Loading
+        </h3>
+      </div>
+      <div class="col-sm-9 m-auto" *ngIf="manager">
+        <h3 class="mb-5 mt-5">
+          <fa name="address-card"></fa>
+         Manager Details
+        </h3>
+        <div class="card">
+          <div class="card-header bg-success text-white">
+            <h5 class="float-left">{{manager.firstName}}</h5>
+            <div class="btn-group float-right">
+                <!-- <a routerLink="/editEmployee/{{employee.empId}}" class="btn">
+                  <fa name="edit"></fa>
+                </a> -->
+               
+    
+              </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3">
+                <img [src]="manager.gender=='GENT'?gentLogo:ladyLogo" class="img-fluid" />
+              </div>
+              <div class="col-md-9">
+  
+                <p>
+                  <fa name="envelope"></fa><strong> Email Id :</strong> {{manager.emailId}}
+                </p>
+                <p>
+                  <fa name="mobile"></fa><strong> Mobile No :</strong> {{manager.mobileNUmber}}
+                </p>
+                <p>
+                  <fa name="map-marker"></fa> <strong> Location :</strong> {{manager.address}}
+                </p>
+                <a routerLink="/delManager/{{manager.managerid}}" class="btn btn-danger">
+                  <fa name="trash"></fa> <strong> DELETE </strong>
+                </a>
+                
+                <a routerLink="/listManagers" class="btn btn-warning">
+                  <fa name="users"></fa> <strong> BACK </strong>
+                </a>    
+              </div>
+            </div>
+          </div>
+          
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

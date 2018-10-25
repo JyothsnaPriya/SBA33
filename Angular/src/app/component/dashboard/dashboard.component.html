@@ -1,0 +1,22 @@
+<!-- <div class="jumbotron">
+  <header class="container-fluid">
+    <h1>
+      {{title}}
+    </h1>
+  </header>
+</div> -->
+<div class="container">
+
+  <!-- <div class="alert alert-info p-4" *ngIf="msg">
+    <fa name="info"></fa> {{msg}}
+  </div> -->
+  <div>
+    <h3>Successfully Opened a new Multiplex </h3>
+    <br />
+    <h4>Appoint Manager to this multiplex</h4>
+    <div class="btn-group">
+        <a routerLink="/addManager/{{multiplexes.mulname}}" class="btn btn-success">Appoint</a>
+        <a routerLink="/viewMultiplex/{{multiplexes.mulname}}" class="btn btn-info">Later</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container mt-2">
+    <div class="row">
+      <div class="col-sm-9 m-auto" *ngIf="!multiplexes">
+        <h3>
+          <fa name="cog" animation="spin"></fa> Loading
+        </h3>
+      </div>
+      <div class="col-sm-9 m-auto" *ngIf="multiplexes">
+        <h3 class="mb-5 mt-5">
+          <fa name="address-card"></fa>
+         Multiplex Details
+        </h3>
+        <div class="card">
+          <div class="card-header bg-success text-white">
+            <h5 class="float-left">{{multiplexes.mulname}}</h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <img [src]="mulLogo" class="img-fluid" />
+                </div>
+              <div class="col-md-9">
+                
+                <p>
+                  <fa name="mobile"></fa><strong> Contact No :</strong> {{multiplexes.contactno}}
+                </p>
+                <p>
+                  <fa name="map-marker"></fa> <strong> Location :</strong> {{multiplexes.location}}
+                </p>
+                <a routerLink="/addManager/{{multiplexes.mulname}}" class="btn btn-success"> Appoint
+                  <fa name="new"></fa>
+                </a>                
+                <a routerLink="/listMultiplexes" class="btn btn-warning">
+                  <fa name="users"></fa> <strong> BACK </strong>
+                </a>    
+              </div>
+            </div>
+          </div>
+          
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

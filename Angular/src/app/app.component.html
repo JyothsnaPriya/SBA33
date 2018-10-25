@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" routerLink="/">
+    <img [src]="logoUrl" style="width:40px" /> {{title}}
+  </a>
+   
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/listMultiplexes">
+        <fa name="archive"></fa>
+        Multiplex List</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/addMultiplex">
+          <fa name="archive"></fa>
+          New Multiplex
+        </a>
+      </li>
+
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/listManagers">
+          <fa name="users"></fa>
+          Managers List</a>
+      </li>
+
+  </ul>
+  <form class="form-inline">
+      <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" 
+              (click)="doChangeField('location',srch)">
+                <fa name="map-marker"></fa>
+              </button>
+              <button type="button" class="btn btn-primary" 
+              (click)="doChangeField('contactno',srch)">
+                <fa name="mobile"></fa>
+              </button>
+              <button type="button" class="btn btn-primary" 
+              (click)="doChangeField('mulname',srch)">
+                <fa name="user"></fa>
+              </button>
+            </div>
+          </div>
+          <input type="text" name="srchValue" class="form-control" 
+          [(ngModel)]="srchValue"
+          required #srch placeholder="Multiplex" />
+          <div class="input-group-prepend">
+            <button class="btn btn-primary" (click)="doSearch()">
+              <fa name="search"></fa>
+            </button>
+          </div>
+        </div>
+  </form>
+
+
+</nav>
+<router-outlet></router-outlet>
